@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <title>Weather App</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="search-box">
+        <i class="fa-solid fa-location-dot"></i>
+        <input type="text" placeholder="Введите место">
+        <button class="fa-solid fa-magnifying-glass" type="button" name="button"></button>
+      </div>
+      <div class="not-found">
+        <img src="images/not-found.png">
+        <p>Не найдено! Попробуйте снова</p>
+      </div>
+      <div class="weather-box">
+        <img src="">
+        <p class="temperature"></p>
+        <p class="description"></p>
+      </div>
+      <div class="weather-details">
+        <div class="humidity">
+          <i class="fa-solid fa-water"></i>
+          <div class="text">
+            <span></span>
+            <p>Влажность</p>
+          </div>
+        </div>
+        <div class="wind">
+          <i class="fa-solid fa-wind"></i>
+          <div class="text">
+            <span></span>
+            <p>Скорость ветра</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+  <script src="https://kit.fontawesome.com/25c1e8be83.js" crossorigin="anonymous"></script>
+  <script src="index.js"></script>
+</html>
