@@ -1,18 +1,21 @@
-const container = document.querySelector('.container');
-const search = document.querySelector('.search-box button');
-const weatherBox = document.querySelector('.weather-box');
-const weatherDetails = document.querySelector('.weather-details');
-const error404 = document.querySelector('.not-found');
+const container = document.querySelector(".container");
+const search = document.querySelector(".search-box button");
+const weatherBox = document.querySelector(".weather-box");
+const weatherDetails = document.querySelector(".weather-details");
+const error404 = document.querySelector(".not-found");
+import data from "/data.json" assert { type: "json" };
 
 search.addEventListener("click", () => {
-  const APIKey = "8dd696f6f63c7943bdb5b76f8c587ee6";
+  const APIKey = data.key;
   const city = document.querySelector(".search-box input").value;
 
   if (city === "") return;
 
-  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${APIKey}&lang=ru`)
-    .then(response => response.json())
-    .then(json => {
+  fetch(
+    `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${APIKey}&lang=ru`
+  )
+    .then((response) => response.json())
+    .then((json) => {
       if (json.cod === "404") {
         container.style.height = "500px";
         weatherBox.style.display = "none";
@@ -28,7 +31,9 @@ search.addEventListener("click", () => {
       const image = document.querySelector(".weather-box img");
       const temperature = document.querySelector(".weather-box .temperature");
       const description = document.querySelector(".weather-box .description");
-      const humidity = document.querySelector(".weather-details .humidity span");
+      const humidity = document.querySelector(
+        ".weather-details .humidity span"
+      );
       const wind = document.querySelector(".weather-details .wind span");
 
       switch (json.weather[0].main) {
@@ -61,5 +66,4 @@ search.addEventListener("click", () => {
       weatherDetails.classList.add("fadeIn");
       container.style.height = "590px";
     });
-
-  });
+});
